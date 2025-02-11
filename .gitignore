@@ -1,0 +1,13 @@
+# Exclure les fichiers Python compilés
+__pycache__/
+*.pyc
+*.pyo
+
+# Exclure les fichiers d'environnement virtuel
+venv/
+.env
+
+# Exclure les fichiers logs et IDE
+*.log
+.vscode/
+.idea/
