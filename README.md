@@ -2,23 +2,21 @@
 
 # 🚀 Simulation d'un Essaim de Drones en 3D
 
-Ce projet simule un essaim de drones en 3D
+AirPhalanx est une simulation en 3D d'un essaim de drones autonomes qui s'auto-organisent de manière décentralisée. Cette simulation démontre des comportements émergents comme la formation en vol, l'élection de leader, et la tolérance aux pannes.
 
 ---
 
-## 📌 Installation des Dépendances
+## 📌 Installation
 
-### 🔹 1. Vérifier que Python est installé
-Assurez-vous d’avoir **Python 3.9** installé sur votre machine. Vous pouvez vérifier en exécutant la commande suivante dans un terminal :  
+### 🔹 1. Cloner le dépot  
 
 ```bash
-python --version
+git clone https://github.com/snaxx78/AirPhalanx.git
+cd airphalanx
 ```
 
-### 🔹 2. Clonez ce dépôt Git sur votre machine locale en exécutant :
+### 🔹 2. Installer les dépendances :
 
-### 🔹 3. Installer les dépendances :
-Les bibliothèques nécessaires sont listées dans le fichier requirements.txt. Pour les installer, exécutez :
 ```bash
 pip install -r requirements.txt
 ```
@@ -29,14 +27,29 @@ ou, si pip n’est pas reconnu, utilisez :
 python -m pip install -r requirements.txt
 ```
 
-### 🔹 4. Lancer la simulation
+### 🔹 3. Lancer la simulation
 Une fois les dépendances installées, exécutez la simulation en lançant :
 ```bash
-pip install -r requirements.txt
+python main.py --waypoints 0 0 50 100 100 80 200 0 60 0 0 50
 ```
 
-ou, selon votre système :
+## 📌 Structure du projet
 
-```bash
-python -m pip install -r requirements.txt
+```
+airphalanx/
+├── main.py
+├── requirements.txt
+├── README.md
+├── src/
+│   ├── models/
+│   │   ├── drone.py  
+│   │   ├── messages.py
+│   │   └── enums.py
+│   ├── simulation/
+│   │   └── swarm_simulation.py
+│   └── visualization/
+│       ├── pyqt_visualization.py
+│       └── gpu_accelerated.py
+└── utils/
+    └── vector_utils.py
 ```
