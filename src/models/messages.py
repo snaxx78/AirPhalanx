@@ -7,4 +7,4 @@ class Message:
         self.msg_type = msg_type  # position, formation_update, leader_heartbeat, etc.
         self.data = data if data is not None else {}
         self.timestamp = time.time()
-        self.ttl = 5  # Time to live (nombre de sauts maximum) - augmenté pour meilleure propagation
+        self.ttl = 5  

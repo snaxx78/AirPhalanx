@@ -33,7 +33,7 @@ class Drone:
         # Paramètres de formation
         self.formation_grid_indices = None  # [x, y] indices dans la grille logique
         self.formation_spacing = 20.0  # Espacement entre drones dans la formation
-        self.formation_grid = {}  # {drone_id: [x, y]} - positions logiques des drones connues
+        self.formation_grid = {}
         self.formation_center = None  # Centre estimé de la formation
         self.formation_updated_time = 0  # Dernière mise à jour de formation
         

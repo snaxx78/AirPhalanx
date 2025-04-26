@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Decentralized Drone Swarm Simulation
------------------------------------
-Main entry point for the drone swarm simulation.
-Run with --help for command line options.
+Simulation Décentralisée d'un Essaim de Drones
+----------------------------------------------
+Point d'entrée principal pour la simulation d'essaim de drones.
+Lancer avec --help pour afficher les options de ligne de commande.
 """
 
 import argparse
@@ -11,39 +11,40 @@ from swarm import DecentralizedSwarm
 from visualization import visualize_swarm
 
 def parse_arguments():
-    """Parse command line arguments"""
-    parser = argparse.ArgumentParser(description='Decentralized Drone Swarm Simulation')
-    parser.add_argument('--drones', type=int, default=5, help='Number of drones in the swarm')
-    parser.add_argument('--fast', action='store_true', help='Run in fast mode for better performance')
-    parser.add_argument('--steps', type=int, default=1000, help='Maximum simulation steps')
+    """Analyser les arguments de la ligne de commande"""
+    parser = argparse.ArgumentParser(description='Simulation Décentralisée d\'un Essaim de Drones')
+    parser.add_argument('--drones', type=int, default=5, help='Nombre de drones dans l\'essaim')
+    parser.add_argument('--fast', action='store_true', help='Exécuter en mode rapide pour de meilleures performances')
+    parser.add_argument('--steps', type=int, default=1000, help='Nombre maximum d\'étapes de simulation')
+
     
     return parser.parse_args()
 
 def main():
-    """Main function"""
-    # Parse command line arguments
+    """Fonction principale"""
+    # Analyser les arguments de la ligne de commande
     args = parse_arguments()
     
-    # Print welcome message
-    print(f"Initializing decentralized drone swarm with {args.drones} drones...")
-    print("Use the radio buttons to select different formations in real-time.")
-    print("Press the 'Reset Simulation' button to restart with new drones.")
-    print("Press the 'Add Drone' button to add a new drone to the swarm.")
-    print("Press the 'Add Waypoint' button to add a new waypoint to the mission.")
-    print("Press the 'Pause/Resume Navigation' button to toggle waypoint navigation.")
+    # Afficher le message de bienvenue
+    print(f"Initialisation de l'essaim de drones décentralisé avec {args.drones} drones...")
+    print("Utilisez les boutons radio pour sélectionner différentes formations en temps réel.")
+    print("Appuyez sur le bouton 'Réinitialiser la simulation' pour redémarrer avec de nouveaux drones.")
+    print("Appuyez sur le bouton 'Ajouter un drone' pour ajouter un nouveau drone à l'essaim.")
+    print("Appuyez sur le bouton 'Ajouter un waypoint' pour ajouter un nouveau point de passage à la mission.")
+    print("Appuyez sur le bouton 'Pause/Reprendre la navigation' pour activer ou désactiver la navigation par waypoints.")
     
-    # Create and run the simulation
+    # Créer et lancer la simulation
     simulation = DecentralizedSwarm(num_drones=args.drones)
     
-    # Patch the visualize method to use our visualization function
+    # Modifier la méthode de visualisation pour utiliser notre fonction personnalisée
     simulation.visualize = lambda: visualize_swarm(simulation)
     
-    # Run the simulation
+    # Exécuter la simulation
     if args.fast:
-        print("Running in fast mode...")
+        print("Exécution en mode rapide...")
         simulation.run_simulation_fast(num_steps=args.steps)
     else:
-        print("Running in standard mode...")
+        print("Exécution en mode standard...")
         simulation.run_simulation(num_steps=args.steps)
 
 if __name__ == "__main__":
